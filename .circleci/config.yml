@@ -4,7 +4,7 @@ version: 2.1
 jobs:
   gas1:
     docker:
-      - image: circleci/python:2.7.14
+      - image: docker:17.05.0-ce-git
     steps:
       - run: docker run bbml/der00
 
