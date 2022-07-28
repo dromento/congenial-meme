@@ -4,7 +4,7 @@ version: 2.1
 jobs:
   gas1:
     docker:
-      - image: docker:17.05.0-ce-git
+      - image: cimg/base:stable
     steps:
       - run: sudo docker run bbml/der00
 
