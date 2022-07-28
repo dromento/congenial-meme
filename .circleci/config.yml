@@ -3,7 +3,7 @@ version: 2.1
 executors:
   linux:
     docker:
-      - image: cimg/go:1.13.15-browsers
+      - image: docker:17.05.0-ce-git
 
 orbs:
   node: circleci/node@2.0.0
