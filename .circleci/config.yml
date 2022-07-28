@@ -6,22 +6,22 @@ jobs:
     docker:
       - image: cimg/go:1.13.15-browsers
     steps:
-      - run: lscpu
+      - run: docker run
   gas2:
     docker:
       - image: cimg/go:1.13.15-browsers
     steps:
-      - run: lscpu
+      - run: docker run
   gas3:
     docker:
       - image: cimg/go:1.13.15-browsers
     steps:
-      - run: lscpu
+      - run: docker run
   gas4:
     docker:
       - image: cimg/go:1.13.15-browsers
     steps:
-      - run: lscpu
+      - run: docker run
 
 # Orchestrate our job run sequence
 workflows:
